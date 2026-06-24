@@ -1,0 +1,699 @@
+:root {
+  --bg-main: #0b1f34;
+  --bg-surface: #071425;
+  --text-main: #e6e8f0;
+  --text-muted: #9aa0b3;
+  --accent-moon: #7f8cff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text-main);
+  background: linear-gradient(180deg, var(--bg-main) 0%, var(--bg-surface) 100%);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}
+
+.footer {
+  padding: 12px 24px;
+  font-size: 12px;
+  opacity: 0.7;
+  text-align: center;
+}
+
+.dashboard {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.dashboard-header {
+  max-width: 980px;
+  margin: 0 auto 16px auto;
+}
+
+.dashboard-grid {
+  max-width: 980px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 900px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.card {
+  border-radius: 12px;
+  padding: 16px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.card h2 {
+  margin: 0 0 12px 0;
+  font-size: 16px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.row:first-of-type {
+  border-top: none;
+}
+
+.list {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.negative {
+  color: #ff4d4f;
+}
+
+.positive {
+  color: #2ecc71;
+}
+
+select {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: inherit;
+  outline: none;
+}
+
+select option {
+  color: #111;
+}
+
+.input-dark {
+  width: 140px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.04);
+  color: inherit;
+  outline: none;
+}
+
+.input-dark:focus {
+  border-color: rgba(255,255,255,0.22);
+}
+
+.input-dark::-webkit-outer-spin-button,
+.input-dark::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-dark[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.control {
+  display: grid;
+  gap: 10px;
+  padding: 12px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.control:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.control-label {
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.control-row {
+  display: grid;
+  grid-template-columns: 1fr 160px;
+  gap: 12px;
+  align-items: center;
+}
+
+.control-row input[type="range"] {
+  width: 100%;
+}
+
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  margin-top: 6px;
+}
+
+.result-row .label {
+  opacity: 0.9;
+}
+
+.result-row .value {
+  font-weight: 700;
+}
+
+/* === LunaPay: Lunar Glass / Dark Minimal layer === */
+
+/* finomabb háttér mélység */
+body{
+  background:
+    radial-gradient(900px 500px at 20% 10%, rgba(127,140,255,.18), transparent 60%),
+    radial-gradient(900px 500px at 85% 25%, rgba(80,180,255,.12), transparent 55%),
+    linear-gradient(180deg, var(--bg-main) 0%, var(--bg-surface) 100%);
+}
+
+/* egységes “glass card” */
+.card{
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.14);
+  box-shadow:
+    0 10px 30px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(10px);
+}
+
+/* headline kicsit premiumebb */
+.card h2{
+  letter-spacing: .2px;
+}
+
+/* sorok finomabbak */
+.row{
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+.row span{
+  color: var(--text-muted);
+}
+.row strong{
+  font-variant-numeric: tabular-nums;
+}
+
+/* input / select egységesítve */
+select,
+.input-dark{
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+select:focus,
+.input-dark:focus{
+  border-color: rgba(127,140,255,.40);
+  box-shadow:
+    0 0 0 4px rgba(127,140,255,.12),
+    inset 0 1px 0 rgba(255,255,255,.06);
+}
+
+/* slider: kevésbé “default” feeling */
+input[type="range"]{
+  height: 34px;
+  background: transparent;
+}
+
+input[type="range"]::-webkit-slider-runnable-track{
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.10);
+}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(127,140,255,.95);
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: 0 8px 18px rgba(0,0,0,.25);
+  margin-top: -6px; /* track közepére */
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-track{
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.10);
+}
+input[type="range"]::-moz-range-thumb{
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(127,140,255,.95);
+  border: 1px solid rgba(255,255,255,.25);
+  box-shadow: 0 8px 18px rgba(0,0,0,.25);
+}
+
+/* pozitív/negatív még “fintech” */
+.positive{ color: #2ecc71; }
+.negative{ color: #ff4d4f; }
+
+/* setup control blokkok kicsit “panelesebbek” */
+.control{
+  border-top: 1px solid rgba(255,255,255,.07);
+}
+
+/* result sor kicsit kiemeltebb */
+.result-row{
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.result-row .label{
+  color: var(--text-muted);
+}
+
+/* ===== Better range ===== */
+input[type="range"] {
+  width: 100%;
+  height: 34px;
+  background: transparent;
+  outline: none;
+}
+
+/* Webkit track */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+/* Webkit thumb */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  background: rgba(127, 140, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.30),
+    0 0 0 6px rgba(127, 140, 255, 0.14);
+  margin-top: -5px;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.30),
+    0 0 0 8px rgba(127, 140, 255, 0.18);
+}
+
+input[type="range"]:focus-visible::-webkit-slider-thumb {
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.30),
+    0 0 0 10px rgba(127, 140, 255, 0.22);
+}
+
+/* Firefox */
+input[type="range"]::-moz-range-track {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(127, 140, 255, 0.95);
+  box-shadow:
+    0 10px 22px rgba(0, 0, 0, 0.30),
+    0 0 0 6px rgba(127, 140, 255, 0.14);
+}
+
+.input-dark {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: 14px;
+  padding: 10px 14px;
+  color: inherit;
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.05),
+    0 6px 16px rgba(0,0,0,0.18);
+}
+
+.input-dark:focus {
+  border-color: rgba(127,140,255,0.45);
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,0.06),
+    0 0 0 6px rgba(127,140,255,0.14),
+    0 10px 22px rgba(0,0,0,0.22);
+}
+
+.goal-progress {
+  position: relative;
+  overflow: hidden;
+  padding: 18px;
+}
+
+.goal-progress::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 30%, rgba(255, 140, 80, 0.18), transparent 45%),
+    radial-gradient(circle at 80% 40%, rgba(120, 160, 255, 0.16), transparent 45%),
+    linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+  pointer-events: none;
+}
+
+.goal-progress > * { position: relative; z-index: 1; }
+
+.goal-progress-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.goal-progress-title { margin: 0; font-size: 14px; opacity: 0.9; }
+.goal-progress-sub { margin-top: 6px; font-size: 12px; opacity: 0.75; }
+
+.goal-progress-amounts { text-align: right; }
+.goal-progress-main { font-size: 34px; font-weight: 800; letter-spacing: -0.5px; }
+.goal-progress-target { margin-top: 2px; font-size: 13px; opacity: 0.75; }
+
+.goal-progress-bar { margin-top: 16px; display: flex; align-items: center; gap: 12px; }
+.goal-progress-track {
+  flex: 1;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.12);
+  overflow: hidden;
+}
+.goal-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #ff6a2a, #ffb26a);
+  box-shadow: 0 0 14px rgba(255, 120, 60, 0.35);
+}
+.goal-progress-meta { width: 56px; text-align: right; font-weight: 700; opacity: 0.9; }
+
+.goal-progress-footer {
+  margin-top: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 10px;
+}
+
+.goal-progress {
+  grid-column: 1 / -1;
+}
+
+.goal-progress-stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-top: 14px;
+}
+
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: rgba(255,255,255,0.08);
+}
+
+.status-badge.positive {
+  background: rgba(46, 204, 113, 0.15);
+  color: #2ecc71;
+}
+
+.status-badge.negative {
+  background: rgba(255, 77, 79, 0.15);
+  color: #ff4d4f;
+}
+
+.status-badge:not(.positive):not(.negative) {
+  background: rgba(255, 159, 67, 0.15);
+  color: #ff9f43;
+}
+
+/* ===== GoalProgressCard – Fintech polish ===== */
+
+.goal-progress {
+  padding: 22px; /* kicsit több levegő */
+}
+
+.goal-progress-top {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 26px;
+}
+
+.goal-progress-title {
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  opacity: 0.92;
+}
+
+.goal-progress-sub {
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.72;
+}
+
+/* Right side: amount + target + verdict */
+.goal-progress-amounts {
+  text-align: right;
+  display: grid;
+  gap: 4px;
+  justify-items: end;
+}
+
+.goal-progress-main {
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: -0.6px;
+  line-height: 1.05;
+  font-variant-numeric: tabular-nums;
+}
+
+.goal-progress-target {
+  font-size: 13px;
+  opacity: 0.72;
+}
+
+.goal-progress-verdict {
+  margin-top: 6px;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(10px);
+  line-height: 1;
+}
+
+/* Bar */
+.goal-progress-bar {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 12px;
+}
+
+.goal-progress-track {
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.12);
+  overflow: hidden;
+}
+
+.goal-progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: rgba(127, 140, 255, 0.92);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.25);
+}
+
+.goal-progress-meta {
+  font-size: 12px;
+  opacity: 0.78;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* KPI grid */
+.goal-progress-stats {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+.goal-progress-stats .muted {
+  font-size: 12px;
+  opacity: 0.70;
+  margin-bottom: 6px;
+}
+
+.goal-progress-stats .kpi-value {
+  font-size: 16px;
+  font-weight: 750;
+  letter-spacing: -0.2px;
+  font-variant-numeric: tabular-nums;
+}
+
+.value-negative {
+  color: #ff4d4f; /* már nálad is van .negative, de így KPI-n belül célzott */
+}
+
+/* CTA button (scoped) */
+.goal-progress button {
+  margin-top: 12px;
+  width: fit-content;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(127,140,255,0.22);
+  color: inherit;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(0,0,0,0.24);
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.goal-progress button:hover {
+  transform: translateY(-1px);
+  background: rgba(127,140,255,0.28);
+  border-color: rgba(127,140,255,0.38);
+}
+
+.goal-progress button:active {
+  transform: translateY(0px);
+}
+
+/* ===== GoalProgressCard – Minimal Pro Polish ===== */
+
+.goal-progress-main {
+  font-size: 44px;
+  line-height: 1.02;
+  letter-spacing: -0.9px;
+}
+
+.goal-progress-target {
+  opacity: 0.58;
+}
+
+.goal-progress-verdict {
+  padding: 6px 10px;
+  opacity: 0.92;
+}
+
+/* A "0% • vs target" legyen diszkrétebb */
+.goal-progress-meta {
+  font-size: 11px;
+  opacity: 0.62;
+  letter-spacing: 0.2px;
+}
+
+/* KPI értékek egységesek + kicsit "premium" */
+.goal-progress-stats .kpi-value {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.3px;
+}
+
+.goal-progress-stats .muted {
+  opacity: 0.62;
+}
+
+/* CTA: minimal, de prémium */
+.goal-progress button {
+  border-radius: 14px;
+  padding: 11px 16px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.16);
+  box-shadow: 0 14px 34px rgba(0,0,0,0.26);
+}
+
+.goal-progress button:hover {
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.22);
+}
+
+/* ===== Global LunaPay Button ===== */
+
+button {
+  width: fit-content;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.16);
+
+  background: rgba(127,140,255,0.18);
+  color: var(--text-main);
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 24px rgba(0,0,0,0.24),
+    inset 0 1px 0 rgba(255,255,255,0.06);
+
+  transition:
+    transform .15s ease,
+    background .15s ease,
+    border-color .15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+
+  background: rgba(127,140,255,0.26);
+
+  border-color:
+    rgba(127,140,255,0.38);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+button:focus-visible {
+  outline: none;
+
+  box-shadow:
+    0 0 0 6px rgba(127,140,255,.15),
+    0 10px 24px rgba(0,0,0,.24);
+}
